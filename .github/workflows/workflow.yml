@@ -1,0 +1,31 @@
+name: "Example workflow"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  custom-action-job:
+    runs-on: ubuntu-latest
+    name: Execute Custom Action 
+
+    steps:
+      - name: Create File 
+        run: echo "Contenido inicial" > archivo.txt
+
+      - name: Checkout Action
+        uses: actions/checkout@v3
+        with:
+          repository: bancodebogota/bdb-dig-do-action-check-files-workflows
+          ref: 'v1.0'
+          persist-credentials: false
+          path: ./.github/actions/custom_action
+
+      - name: Modify Text 
+        uses: ./.github/actions/custom_action
+        with:
+          file_path: archivo.txt
+
+      - name: Show File Content 
+        run: cat archivo.txt
