@@ -25,7 +25,7 @@ jobs:
       - name: Modify Text 
         uses: ./.github/actions/custom_action
         with:
-          file_path: archivo.txt
+          file_path: ./archivo.txt
 
       - name: Show File Content 
         run: cat archivo.txt
