@@ -17,7 +17,7 @@ jobs:
       - name: Checkout Action
         uses: actions/checkout@v3
         with:
-          repository: bancodebogota/bdb-dig-do-action-check-files-workflows
+          repository: jesco13/custom_action_example@v1.0 
           ref: 'v1.0'
           persist-credentials: false
           path: ./.github/actions/custom_action
